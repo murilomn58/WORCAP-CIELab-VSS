@@ -21,8 +21,7 @@ a cor é calibrada pelo campo. O resultado vale para uma cena sob luz simulada;
 validar em cena real é o próximo passo. 
 
 ## Estado do repositório
-
-A versão pública contém esta apresentação. O código experimental ainda está em preparação local.
+O código experimental ainda está em preparação local.
 
 O trabalho local reúne experimentos com espaços de cor, agrupamento, modelos de rede, métricas e figuras para o artigo. Esses componentes serão documentados junto da versão de código correspondente.
 
