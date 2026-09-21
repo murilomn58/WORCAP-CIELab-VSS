@@ -3,6 +3,7 @@
 Repositório de apresentação do trabalho do artigo "Calibração colorimétrica e rotulagem automática 
 por k-means para segmentação semântica 
 sob iluminação não controlada" preparado para o WORCAP.
+
 ## Abstract: 
 A segmentação por cor se degrada quando a iluminação muda, e 
 recuperá-la costuma exigir reajuste manual ou nova anotação pixel a pixel. 
@@ -18,15 +19,13 @@ o mesmo passo eleva o mIoU de 0,522 para 0,677. Os dois fatores, portanto,
 não se somam: interagem, e a luminosidade só se torna informativa depois que 
 a cor é calibrada pelo campo. O resultado vale para uma cena sob luz simulada; 
 validar em cena real é o próximo passo. 
+
 ## Estado do repositório
 
 A versão pública contém esta apresentação. O código experimental ainda está em preparação local.
 
 O trabalho local reúne experimentos com espaços de cor, agrupamento, modelos de rede, métricas e figuras para o artigo. Esses componentes serão documentados junto da versão de código correspondente.
 
-## Reprodutibilidade
-
-Ainda não há instruções de execução para a versão pública.
 
 ## Contato
 
