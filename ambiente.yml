@@ -1,0 +1,25 @@
+# Ambiente do notebook pipeline.ipynb.
+#
+#   conda env create -f ambiente.yml
+#   conda activate worcap
+#   python -m ipykernel install --user --name worcap --display-name "Python (worcap)"
+#
+# Tudo roda em CPU. As versoes sao as que foram verificadas nesta maquina.
+name: worcap
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - numpy==2.2.6
+      - scipy
+      - pandas
+      - scikit-learn==1.9.1
+      - scikit-image==0.26.0
+      - colour-science==0.4.7
+      - opencv-python-headless
+      - pillow
+      - matplotlib
+      - jupyterlab
+      - ipykernel

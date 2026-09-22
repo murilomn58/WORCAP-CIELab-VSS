@@ -1,31 +1,26 @@
-# WORCAP · CIELab VSS
+# Calibração pelo campo, CIELAB e k-means
 
-Repositório de apresentação do trabalho do artigo "Calibração colorimétrica e rotulagem automática 
-por k-means para segmentação semântica 
-sob iluminação não controlada" preparado para o WORCAP.
+Código do artigo do WORCAP. É uma segmentação por cor: o notebook `pipeline.ipynb` simula uma luz
+diferente sobre a foto do campo, calibra usando o piso e as linhas do próprio campo, converte pra
+CIELAB e agrupa os pixels coloridos com k-means em L*a*b*. A pergunta é se calibrar antes de agrupar
+ajuda, e o teste é o IoU de cada cor contra o gabarito.
 
-## Abstract: 
-A segmentação por cor se degrada quando a iluminação muda, e 
-recuperá-la costuma exigir reajuste manual ou nova anotação pixel a pixel. 
-Propomos um fluxo em que a calibração colorimétrica antecede a segmentação, 
-tornando a cromaticidade comparável entre condições de aquisição: a imagem 
-é calibrada tomando como referência de luminosidade o próprio campo, o que 
-permite isolar o papel do fator L* (luminosidade) frente ao plano cromático ab 
-no espaço CIELAB. Comparamos a rotulação por k-means nos quatro cenários 
-do cruzamento calibrado/não calibrado × Lab/ab, sob três faixas de 
-temperatura de cor reservadas e três semente seeds. Sem calibração, incluir L* 
-quase não altera a segmentação (mIoU 0,434 → 0,442); calibrado pelo campo, 
-o mesmo passo eleva o mIoU de 0,522 para 0,677. Os dois fatores, portanto, 
-não se somam: interagem, e a luminosidade só se torna informativa depois que 
-a cor é calibrada pelo campo. O resultado vale para uma cena sob luz simulada; 
-validar em cena real é o próximo passo. 
+## Rodando
 
-## Estado do repositório
-O código experimental ainda está em preparação local.
+    conda env create -f ambiente.yml
+    conda activate worcap
+    python -m ipykernel install --user --name worcap --display-name "Python (worcap)"
+    jupyter lab pipeline.ipynb
 
-O trabalho local reúne experimentos com espaços de cor, agrupamento, modelos de rede, métricas e figuras para o artigo. Esses componentes serão documentados junto da versão de código correspondente.
+Roda em poucos segundos numa CPU. O csv e as figuras caem em `saidas/`.
 
+## Dados
 
-## Contato
+Vai versionado só o necessário pra rodar:
 
-[Murilo Narciso](https://www.linkedin.com/in/murilonarciso/)
+- `dados_2020/test_images/image0000.jpg`: um quadro da base de 2020, sob a luz normal do laboratório
+- `dados_2020/gabarito.png`: as etiquetas desse quadro, uma cor por classe
+
+A cena é estática (os robôs não se mexem entre os mil quadros), então um quadro basta e serve de
+referência e de imagem de teste. A base completa e os vídeos ficam fora do git por tamanho. O gabarito
+saiu da mediana dos quadros de `dados_2020/videos/mascara.mp4`.
